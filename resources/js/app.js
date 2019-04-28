@@ -23,6 +23,7 @@ window.Vue = require('vue');
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 //Vue.component('company-component', require('./components/CompaniesIndex').default);
 Vue.component('questionnaire-sheet', require('./components/QuestionnaireSheet').default);
+Vue.component('questionnary-navigation', require('./components/QuestionnaryNavigation').default);
 
 
 /**
@@ -33,8 +34,13 @@ Vue.component('questionnaire-sheet', require('./components/QuestionnaireSheet').
 
 const app = new Vue({
     el: '#app',
+   /* data: () => {
+        return{
+        questions: []
+        }
+    },*/
     mounted: () => {
-        console.log('Mounted');
+
     }
 
 });

@@ -1,7 +1,7 @@
 <template>
     <div>
-        <p>{{ title }}</p>
-        <InputField></InputField>
+        <p>{{ question.title }}</p>
+        <InputField ></InputField>
     </div>
 </template>
 
@@ -16,7 +16,10 @@
             }
         },
         props: {
-            title: String
+            question: Object
+        },
+        mounted() {
+            //console.log(this)
         }
 
     }

@@ -8,7 +8,10 @@
         </div>
         <div>
             <question
-                title = "sadasd"></question>
+                    v-for="question in questions"
+                    v-bind:key="question.id"
+                    v-bind:question="question"
+                ></question>
         </div>
     </div>
 </template>
@@ -24,12 +27,21 @@
             return {
                 number: '3',
                 name: "One",
-                title: "Фамилия"
+                title: "Фамилия",
+                questions: []
             }
         },
 
         mounted() {
-            console.log(this)
+            let app = this;
+            axios.get('/api/v1/questionary')
+                .then((response) => {
+                    app.questions = response.data;
+                })
+                .catch((response) => {
+                    console.log(response);
+                    alert("Error");
+                })
         }
     }
 </script>
