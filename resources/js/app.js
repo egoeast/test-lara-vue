@@ -8,6 +8,7 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
+window.Vuex = require('vuex');
 
 /**
  * The following block of code may be used to automatically register your
@@ -31,6 +32,18 @@ Vue.component('questionnary-navigation', require('./components/QuestionnaryNavig
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+Vue.use(Vuex);
+
+const store = new Vuex.Store({
+    state: {
+        count: 0
+    },
+    mutations: {
+        increment (state) {
+            state.count++
+        }
+    }
+});
 
 const app = new Vue({
     el: '#app',
@@ -39,6 +52,7 @@ const app = new Vue({
         questions: []
         }
     },*/
+    store,
     mounted: () => {
 
     }

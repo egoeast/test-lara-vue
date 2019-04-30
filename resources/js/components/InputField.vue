@@ -1,6 +1,6 @@
 <template>
     <div>
-        <input v-model="answer" type="text"/>
+        <input @change="changeValue" v-model="answer" type="text"/>
         <p>Answer: {{ answer }}</p>
     </div>
 </template>
@@ -8,15 +8,17 @@
 <script>
     export default {
         name: "InputField",
-        data: () => {
+        data: function() {
             return {
                 answer: ''
             }
         },
         methods: {
-            changeValue: (e) => {
-                console.log(answer)
-                //this.answer = e.target.value;
+            changeValue: function(e)  {
+                //store.commit('increment')
+                console.log(this.$store);
+
+                this.$emit('saveResult', this.answer);
             }
         }
     }

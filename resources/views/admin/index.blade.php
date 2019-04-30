@@ -83,8 +83,3 @@
 
 </body>
 </html>
-<script>
-    export default {
-        components: {QuestionnaryNavigation}
-    }
-</script>

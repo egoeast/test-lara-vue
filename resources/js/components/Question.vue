@@ -1,7 +1,7 @@
 <template>
     <div>
         <p>{{ question.title }}</p>
-        <InputField ></InputField>
+        <InputField @saveResult="saveResult" ></InputField>
     </div>
 </template>
 
@@ -20,6 +20,11 @@
         },
         mounted() {
             //console.log(this)
+        },
+        methods: {
+            saveResult(result) {
+                console.log(result)
+            }
         }
 
     }
