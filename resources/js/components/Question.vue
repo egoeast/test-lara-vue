@@ -23,6 +23,7 @@
         },
         methods: {
             saveResult(result) {
+                this.$store.commit('increment');
                 console.log(result)
             }
         }

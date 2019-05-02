@@ -4,7 +4,7 @@
             {{ name }}
         </div>
         <div>
-            Лист анкеты № {{ number }}
+            Лист анкеты № {{ this.$store.state.count }}
         </div>
         <div>
             <question
@@ -33,6 +33,7 @@
         },
 
         mounted() {
+            console.log(this.$store)
             let app = this;
             axios.get('/api/v1/questionary')
                 .then((response) => {

@@ -1856,6 +1856,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     saveResult: function saveResult(result) {
+      this.$store.commit('increment');
       console.log(result);
     }
   }
@@ -1910,6 +1911,7 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   mounted: function mounted() {
+    console.log(this.$store);
     var app = this;
     axios.get('/api/v1/questionary').then(function (response) {
       app.questions = response.data;
@@ -38023,7 +38025,9 @@ var render = function() {
     _c("div", [_vm._v("\n        " + _vm._s(_vm.name) + "\n    ")]),
     _vm._v(" "),
     _c("div", [
-      _vm._v("\n        Лист анкеты № " + _vm._s(_vm.number) + "\n    ")
+      _vm._v(
+        "\n        Лист анкеты № " + _vm._s(this.$store.state.count) + "\n    "
+      )
     ]),
     _vm._v(" "),
     _c(
@@ -51243,9 +51247,12 @@ module.exports = function(module) {
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
   \*****************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _store_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./store/index */ "./resources/js/store/index.js");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -51255,6 +51262,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 window.Vuex = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -51275,17 +51283,6 @@ Vue.component('questionnary-navigation', __webpack_require__(/*! ./components/Qu
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.use(Vuex);
-var store = new Vuex.Store({
-  state: {
-    count: 0
-  },
-  mutations: {
-    increment: function increment(state) {
-      state.count++;
-    }
-  }
-});
 var app = new Vue({
   el: '#app',
 
@@ -51294,7 +51291,7 @@ var app = new Vue({
        questions: []
        }
    },*/
-  store: store,
+  store: _store_index__WEBPACK_IMPORTED_MODULE_0__["default"],
   mounted: function mounted() {}
 });
 
@@ -51721,6 +51718,42 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/store/index.js":
+/*!*************************************!*\
+  !*** ./resources/js/store/index.js ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+
+ //import createLogger from '../../../src/plugins/logger'
+
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__["default"]); //const debug = process.env.NODE_ENV !== 'production'
+
+/* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
+  state: {
+    count: 0,
+    another: 2
+  },
+  mutations: {
+    increment: function increment(state) {
+      state.count++;
+    }
+  },
+  modules: {//cart,
+    //products
+  } //strict: debug,
+  //plugins: debug ? [createLogger()] : []
+
+}));
+
+/***/ }),
+
 /***/ "./resources/sass/app.scss":
 /*!*********************************!*\
   !*** ./resources/sass/app.scss ***!
@@ -51739,8 +51772,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\OSPanel\domains\test-lara\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\OSPanel\domains\test-lara\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! H:\OSPanel\domains\test-lara\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! H:\OSPanel\domains\test-lara\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

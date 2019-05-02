@@ -7,10 +7,19 @@ Vue.use(Vuex);
 //const debug = process.env.NODE_ENV !== 'production'
 
 export default new Vuex.Store({
-    modules: {
-        cart,
-        products
+    state: {
+        count: 0,
+        another: 2
     },
-    strict: debug,
-    plugins: debug ? [createLogger()] : []
+    mutations: {
+        increment (state) {
+            state.count++
+        }
+    },
+    modules: {
+        //cart,
+        //products
+    },
+    //strict: debug,
+    //plugins: debug ? [createLogger()] : []
 })
