@@ -18,7 +18,7 @@
                 //store.commit('increment')
                 console.log(this.$store);
 
-                this.$emit('saveResult', this.answer);
+                //this.$emit('saveResult', this.answer);
             }
         }
     }

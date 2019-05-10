@@ -19,11 +19,11 @@
             question: Object
         },
         mounted() {
-            //console.log(this)
+            console.log(this)
         },
         methods: {
             saveResult(result) {
-                this.$store.commit('increment');
+                //this.$store.commit('increment');
                 console.log(result)
             }
         }

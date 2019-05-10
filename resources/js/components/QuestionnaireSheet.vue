@@ -8,9 +8,8 @@
         </div>
         <div>
             <question
-                    v-for="question in questions"
-                    v-bind:key="question.id"
-                    v-bind:question="question"
+
+                    v-bind:question="questions[0]"
                 ></question>
         </div>
     </div>
@@ -33,7 +32,6 @@
         },
 
         mounted() {
-            console.log(this.$store)
             let app = this;
             axios.get('/api/v1/questionary')
                 .then((response) => {
@@ -48,6 +46,5 @@
 </script>
 
 <style scoped>
-
 
 </style>

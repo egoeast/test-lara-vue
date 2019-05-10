@@ -4,7 +4,7 @@
                 v-for="question in questions"
                 v-bind:key="question"
                 class="col-md-1 nav-link"
-                v-on:click="next"
+                v-on:click="next(question)"
         >{{ question }}</div>
     </div>
 </template>
@@ -14,12 +14,13 @@
         name: "QuestionnaryNavigation",
         data: () => {
             return {
-                questions :[1,2,3,4,5]
+                questions :[1,2,3,4]
             }
         },
         methods: {
-          next(ev) {
-              alert('das');
+          next(key, arg) {
+              this.$store.commit('increment', key);
+              console.log(arg);
           }
         }
     }

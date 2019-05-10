@@ -12,8 +12,8 @@ export default new Vuex.Store({
         another: 2
     },
     mutations: {
-        increment (state) {
-            state.count++
+        increment (state, sheetNumber) {
+            state.count = sheetNumber;
         }
     },
     modules: {

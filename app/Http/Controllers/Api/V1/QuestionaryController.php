@@ -30,6 +30,11 @@ class QuestionaryController extends Controller
             "title" => "Second name",
             "type" => "text",
         ];
+        $questions[] = [
+            "id" => 4,
+            "title" => "Position",
+            "type" => "text",
+        ];
 
         return $questions;
     }

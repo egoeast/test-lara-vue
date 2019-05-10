@@ -1813,8 +1813,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     changeValue: function changeValue(e) {
       //store.commit('increment')
-      console.log(this.$store);
-      this.$emit('saveResult', this.answer);
+      console.log(this.$store); //this.$emit('saveResult', this.answer);
     }
   }
 });
@@ -1852,11 +1851,12 @@ __webpack_require__.r(__webpack_exports__);
   props: {
     question: Object
   },
-  mounted: function mounted() {//console.log(this)
+  mounted: function mounted() {
+    console.log(this);
   },
   methods: {
     saveResult: function saveResult(result) {
-      this.$store.commit('increment');
+      //this.$store.commit('increment');
       console.log(result);
     }
   }
@@ -1892,7 +1892,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -1911,7 +1910,6 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   mounted: function mounted() {
-    console.log(this.$store);
     var app = this;
     axios.get('/api/v1/questionary').then(function (response) {
       app.questions = response.data;
@@ -1948,12 +1946,13 @@ __webpack_require__.r(__webpack_exports__);
   name: "QuestionnaryNavigation",
   data: function data() {
     return {
-      questions: [1, 2, 3, 4, 5]
+      questions: [1, 2, 3, 4]
     };
   },
   methods: {
-    next: function next(ev) {
-      alert('das');
+    next: function next(key, arg) {
+      this.$store.commit('increment', key);
+      console.log(arg);
     }
   }
 });
@@ -38030,16 +38029,7 @@ var render = function() {
       )
     ]),
     _vm._v(" "),
-    _c(
-      "div",
-      _vm._l(_vm.questions, function(question) {
-        return _c("question", {
-          key: question.id,
-          attrs: { question: question }
-        })
-      }),
-      1
-    )
+    _c("div", [_c("question", { attrs: { question: _vm.questions[0] } })], 1)
   ])
 }
 var staticRenderFns = []
@@ -38073,7 +38063,11 @@ var render = function() {
         {
           key: question,
           staticClass: "col-md-1 nav-link",
-          on: { click: _vm.next }
+          on: {
+            click: function($event) {
+              return _vm.next(question)
+            }
+          }
         },
         [_vm._v(_vm._s(question))]
       )
@@ -51741,8 +51735,8 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
     another: 2
   },
   mutations: {
-    increment: function increment(state) {
-      state.count++;
+    increment: function increment(state, sheetNumber) {
+      state.count = sheetNumber;
     }
   },
   modules: {//cart,
